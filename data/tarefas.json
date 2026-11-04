@@ -1,28 +1,28 @@
 [
     {
-        "id": 2,
-        "titulo": "Aprender Python avançado",
-        "descricao": "Resolver exercícios de Python",
-        "prioridade": "Alta",
-        "categoria": {
-            "nome": "ESTUDOS",
-            "descricao": "Categoria para estudos"
-        },
-        "concluida": false,
-        "data_limite": "2026-11-05T00:00:00",
-        "data_criacao": "2026-11-03T23:16:14.953572"
-    },
-    {
-        "id": 3,
-        "titulo": "Aprender Python avançado",
-        "descricao": "Estudar Programação Orientada a Objetos",
+        "id": 1,
+        "titulo": "Estudar Python",
+        "descricao": "quero ser um bom programador dominar a linguagem python",
         "prioridade": "Urgente",
         "categoria": {
-            "nome": "ESTUDOS",
-            "descricao": "Categoria para estudos"
+            "nome": "Estudos",
+            "descricao": ""
         },
-        "concluida": true,
-        "data_limite": "2026-11-04T00:00:00",
-        "data_criacao": "2026-11-03T23:27:16.065327"
+        "concluida": false,
+        "data_limite": "2026-11-11T00:00:00",
+        "data_criacao": "2026-11-04T01:43:37.013512"
+    },
+    {
+        "id": 2,
+        "titulo": "Ser rico",
+        "descricao": "quero ser rico bla bla",
+        "prioridade": "Média",
+        "categoria": {
+            "nome": "Pessoais",
+            "descricao": ""
+        },
+        "concluida": false,
+        "data_limite": null,
+        "data_criacao": "2026-11-04T01:46:23.324822"
     }
 ]

@@ -2,21 +2,47 @@ from models.tarefa import Tarefa
 from repositories.tarefa_repository import TarefaRepository
 from models.prioridade import Prioridade
 from models.categoria import Categoria
+from datetime import datetime
 
 class TarefaService:
     def __init__(self, repositorio: TarefaRepository):
         self.repositorio = repositorio
 
+    def adicionar(
+        self,
+        titulo: str,
+        descricao: str = "",
+        prioridade: Prioridade = Prioridade.MEDIA,
+        categoria: Categoria | None = None,
+        data_limite: datetime | None = None) -> Tarefa:
 
-    def adicionar(self, tarefa: Tarefa) -> None:
-        # carrega todas as tarefas existentes do repositório
+        # Carregar tarefas existentes
         tarefas = self.repositorio.carregar()
-        for tarefa_existente in tarefas:
-            if tarefa_existente.id == tarefa.id:
-                raise ValueError(f"Já existe uma tarefa com o ID {tarefa.id}.")
-            
+
+        # Gerar automaticamente o próximo ID
+        novo_id = 1
+
+        for tarefa in tarefas:
+            if tarefa.id >= novo_id:
+                novo_id = tarefa.id + 1
+                
+        # Criar a nova tarefa
+        tarefa = Tarefa(
+            id=novo_id,
+            titulo=titulo,
+            descricao=descricao,
+            prioridade=prioridade,
+            categoria=categoria,
+            data_limite=data_limite
+        )
+
+        # Adicionar e guardar
         tarefas.append(tarefa)
         self.repositorio.guardar(tarefas)
+
+        return tarefa
+
+
 
     def listar_todas(self) -> list[Tarefa]:
         return self.repositorio.carregar()
