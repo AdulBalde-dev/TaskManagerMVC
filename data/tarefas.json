@@ -1,0 +1,28 @@
+[
+    {
+        "id": 2,
+        "titulo": "Aprender Python avançado",
+        "descricao": "Resolver exercícios de Python",
+        "prioridade": "Alta",
+        "categoria": {
+            "nome": "ESTUDOS",
+            "descricao": "Categoria para estudos"
+        },
+        "concluida": false,
+        "data_limite": "2026-11-05T00:00:00",
+        "data_criacao": "2026-11-03T23:16:14.953572"
+    },
+    {
+        "id": 3,
+        "titulo": "Aprender Python avançado",
+        "descricao": "Estudar Programação Orientada a Objetos",
+        "prioridade": "Urgente",
+        "categoria": {
+            "nome": "ESTUDOS",
+            "descricao": "Categoria para estudos"
+        },
+        "concluida": true,
+        "data_limite": "2026-11-04T00:00:00",
+        "data_criacao": "2026-11-03T23:27:16.065327"
+    }
+]
