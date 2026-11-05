@@ -29,6 +29,7 @@ class Tarefa:
 
     @titulo.setter
     def titulo(self, novo_titulo: str):
+        # o titulo tem que ser texto
         if not isinstance(novo_titulo, str):
             raise TypeError("O título da tarefa deve ser uma string.")
 
@@ -82,6 +83,7 @@ class Tarefa:
         return self._concluida
 
     def concluir(self) -> None:
+        # se ja estiver concluida
         if self._concluida:
             raise ValueError("A tarefa já está concluída.")
         self._concluida = True
@@ -94,7 +96,6 @@ class Tarefa:
     @property
     def data_limite(self) -> datetime | None:
         return self._data_limite
-
 
     @data_limite.setter
     def data_limite(self, nova_data_limite: datetime | None) -> None:
@@ -122,6 +123,7 @@ class Tarefa:
     @id.setter
     def id(self, novo_id: int) -> None:
         # or isinstance(novo_id, bool) no python, pois bool é subtipo de int, e nao queremos aceitar booleanos como ID.
+        # garatimos que o id deve ser numero inteiro
         if not isinstance(novo_id, int) or isinstance(novo_id, bool):
             raise TypeError("O ID da tarefa deve ser um inteiro.")
 
@@ -131,8 +133,11 @@ class Tarefa:
 
         self._id = novo_id
 
+
     def to_dict(self) -> dict:
-        # isoformat é usado para converter objetos datetime em strings no formato ISO 8601. pq JSON não suporta diretamente objetos datetime.
+        # isoformat é usado para converter objetos datetime em strings no formato ISO 8601. 
+        # pq JSON não suporta diretamente objetos datetime.
+
         return {
             "id": self.id,
             "titulo": self.titulo,
@@ -147,6 +152,7 @@ class Tarefa:
             "data_criacao": self.data_criacao.isoformat()
         }
 
+    # dados é um dicionario
     @classmethod
     def from_dict(cls, dados: dict):
         tarefa = cls(
@@ -154,12 +160,10 @@ class Tarefa:
             titulo=dados["titulo"],
             descricao=dados["descricao"],
             prioridade=Prioridade(dados["prioridade"]),
-            categoria=Categoria(
-                nome=dados["categoria"]["nome"],
-                descricao=dados["categoria"]["descricao"]
-            ),
+            categoria=Categoria(nome=dados["categoria"]["nome"], descricao=dados["categoria"]["descricao"]),
 
-            data_limite=datetime.fromisoformat(dados["data_limite"]) if dados["data_limite"] else None)
+        data_limite=datetime.fromisoformat(dados["data_limite"]) if dados["data_limite"] else None)
+
         tarefa._concluida = dados.get("concluida", False)
         tarefa.data_criacao = datetime.fromisoformat(dados["data_criacao"])
         

@@ -1,0 +1,47 @@
+Aula 2 — Widgets e Layouts
+1. O que são Widgets?
+Em PySide6, praticamente tudo o que aparece numa interface gráfica é um Widget.
+QLabel: apresenta texto.
+QPushButton: cria botões.
+QLineEdit: campo para escrever texto.
+QTextEdit: campo para escrever textos maiores.
+QCheckBox: caixa de seleção.
+QComboBox: lista de opções.
+QTableWidget: tabela.
+
+
+2. O que são Layouts?
+Imagina que tens uma janela com:
+- Um título.
+- Um campo para escrever.
+- Dois botões.
+Como organizarias esses elementos?
+
+É aqui que entram os Layouts.
+
+Os três mais importantes para começarmos são:
+
+(QVBoxLayout)
+Organiza os elementos verticalmente.
+Título
+Campo
+Botão
+Botão
+
+(QHBoxLayout)
+Organiza os elementos horizontalmente.
+Botão 1    Botão 2    Botão 3
+
+(QGridLayout)
+Organiza os elementos numa grelha, através de linhas e colunas.
+Título       Campo
+Descrição    Campo
+Prioridade   Campo
+
+
+Signal: evento emitido por um componente.
+Slot: função que recebe e responde a esse evento.
+
+
+layout_principal.setSpacing(20): define o espaço entre o título, subtítulo, texto das tarefas e layout dos botões.
+layout_botoes.setSpacing(10): define o espaço entre os três botões.

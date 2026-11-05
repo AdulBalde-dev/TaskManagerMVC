@@ -1,28 +1,15 @@
 [
     {
         "id": 1,
-        "titulo": "Estudar Python",
-        "descricao": "quero ser um bom programador dominar a linguagem python",
-        "prioridade": "Urgente",
+        "titulo": "Estudar",
+        "descricao": "Estudar Python pra fazer diferenca",
+        "prioridade": "Alta",
         "categoria": {
             "nome": "Estudos",
             "descricao": ""
         },
-        "concluida": false,
-        "data_limite": "2026-11-11T00:00:00",
-        "data_criacao": "2026-11-04T01:43:37.013512"
-    },
-    {
-        "id": 2,
-        "titulo": "Ser rico",
-        "descricao": "quero ser rico bla bla",
-        "prioridade": "Média",
-        "categoria": {
-            "nome": "Pessoais",
-            "descricao": ""
-        },
-        "concluida": false,
-        "data_limite": null,
-        "data_criacao": "2026-11-04T01:46:23.324822"
+        "concluida": true,
+        "data_limite": "2026-12-12T00:00:00",
+        "data_criacao": "2026-11-05T16:21:59.001784"
     }
 ]

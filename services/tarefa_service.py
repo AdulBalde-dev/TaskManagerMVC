@@ -27,22 +27,13 @@ class TarefaService:
                 novo_id = tarefa.id + 1
                 
         # Criar a nova tarefa
-        tarefa = Tarefa(
-            id=novo_id,
-            titulo=titulo,
-            descricao=descricao,
-            prioridade=prioridade,
-            categoria=categoria,
-            data_limite=data_limite
-        )
+        tarefa = Tarefa(id=novo_id, titulo=titulo, descricao=descricao, prioridade=prioridade, categoria=categoria, data_limite=data_limite)
 
         # Adicionar e guardar
         tarefas.append(tarefa)
         self.repositorio.guardar(tarefas)
 
         return tarefa
-
-
 
     def listar_todas(self) -> list[Tarefa]:
         return self.repositorio.carregar()
@@ -69,10 +60,10 @@ class TarefaService:
             "descricao",
             "prioridade",
             "categoria",
-            "data_limite"
-        )
+            "data_limite")
 
         # para cada chave em dados, verificar se é permitida
+        # campo seria a chave do dicionario **dados
         for campo in dados:
             if campo not in campos_permitidos:
                 raise ValueError(f"Campo não permitido: {campo}")
@@ -97,6 +88,7 @@ class TarefaService:
     def eliminar(self, tarefa_id: int) -> None:
         self._validar_id(tarefa_id)
 
+        # tarefas seria a nossa lista de tarefas que tava armezada no json
         tarefas = self.repositorio.carregar()
 
         for tarefa in tarefas:
@@ -145,6 +137,7 @@ class TarefaService:
             raise TypeError("O título deve ser uma string.")
 
         titulo = titulo.strip().lower()
+
         if not titulo:
             raise ValueError("O título não pode estar vazio.")
         
@@ -163,6 +156,7 @@ class TarefaService:
         atrasada: bool | None = None) -> list[Tarefa]:
 
         # 1. Validar prioridade
+        # se tiver prioridade e ela nao for instancia da classe Prioridade
         if prioridade is not None and not isinstance(prioridade, Prioridade):
             raise TypeError("A prioridade deve ser um membro de Prioridade.")
 
@@ -189,7 +183,7 @@ class TarefaService:
             if prioridade is not None and tarefa.prioridade != prioridade:
                 continue
 
-            if categoria is not None and tarefa.categoria != categoria:
+            if categoria is not None and tarefa.categoria.nome.casefold() != categoria.nome.casefold():
                 continue
 
             if concluida is not None and tarefa.concluida != concluida:

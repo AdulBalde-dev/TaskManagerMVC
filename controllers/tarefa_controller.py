@@ -16,12 +16,7 @@ class TarefaController:
         categoria: Categoria | None = None,
         data_limite: datetime | None = None) -> Tarefa:
 
-        return self.service.adicionar(
-            titulo=titulo,
-            descricao=descricao,
-            prioridade=prioridade,
-            categoria=categoria,
-            data_limite=data_limite)
+        return self.service.adicionar(titulo=titulo, descricao=descricao, prioridade=prioridade, categoria=categoria, data_limite=data_limite)
 
     def listar_tarefas(self) -> list[Tarefa]:
         return self.service.listar_todas()

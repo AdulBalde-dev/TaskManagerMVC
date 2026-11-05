@@ -16,6 +16,7 @@ class TarefaRepository:
             with open(self.caminho, "r", encoding="utf-8") as arquivo:
                 # Lê os dados do arquivo JSON e retorna como lista de tarefas.
                 dados = json.load(arquivo)
+                # cria instancia tarefa pra cada tarefa
                 tarefas = [Tarefa.from_dict(dado) for dado in dados]
                 return tarefas
         except FileNotFoundError:
@@ -35,9 +36,10 @@ class TarefaRepository:
                 json.dump([], arquivo, indent=4, ensure_ascii=False)
                 print(f"Arquivo {self.caminho} criado com sucesso.")
 
-
+        
     def guardar(self, tarefas: list[Tarefa]) -> None:
         with open(self.caminho, "w", encoding="utf-8") as arquivo:
+            # cria dicionarios apartir das tarefas, dados é uma lista de dicionario onde cada um é uma tarefa
             dados = [tarefa.to_dict() for tarefa in tarefas]
             json.dump(dados, arquivo, indent=4, ensure_ascii=False)
         print(f"Arquivo {self.caminho} salvo com sucesso.")
