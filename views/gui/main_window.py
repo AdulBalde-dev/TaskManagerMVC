@@ -28,10 +28,11 @@ from PySide6.QtCore import Qt
 class MainWindow(QMainWindow):
 
     # Construtor da nossa janela.
-    def __init__(self):
+    def __init__(self, controller):
 
         # Inicializa a classe-pai QMainWindow.
         super().__init__()
+        self.controller = controller
         # Define o título apresentado na barra da janela.
         self.setWindowTitle("TaskManagerMVC")
         # Define o tamanho inicial da janela: largura x altura.
