@@ -145,7 +145,7 @@ class MainWindow(QMainWindow):
         ###############################
         # Criamos um formulário para adicionar tarefas.
         self.formulario = QFormLayout() # cria o layout de formulário
-        
+
         self.formulario.setContentsMargins(0, 50, 500, 50) # define as margens do formulário (esquerda, cima, direita, baixo)
         self.formulario.setSpacing(50) # define o espaçamento entre os campos do formulário
 
